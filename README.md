@@ -15,9 +15,9 @@ A whimsical, Candy Land-themed web application for sharing and discovering delic
 ### Technical Stack
 - **Framework**: Next.js 16 (App Router) with TypeScript
 - **Styling**: Tailwind CSS v4 with custom Candy Land color scheme
-- **Database**: PostgreSQL with Prisma ORM
-- **Authentication**: NextAuth.js (planned)
-- **File Uploads**: Uploadthing for images/videos
+- **Database**: SQLite (dev) / PostgreSQL (production) with Prisma ORM
+- **Authentication**: NextAuth.js with credential provider
+- **File Uploads**: Uploadthing for images/videos (optional)
 - **Icons**: Lucide React
 
 ## Candy Land Theme
@@ -28,48 +28,43 @@ The app features a vibrant, whimsical Candy Land-inspired design with:
 - **Gradient Backgrounds**: Sweet, colorful gradients throughout
 - **Playful Animations**: Floating elements and smooth transitions
 
-## Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
 - Node.js 18+
-- PostgreSQL database
 - npm or yarn
 
 ### Installation
 
-1. Clone the repository
 ```bash
+# 1. Clone and install
 git clone <repository-url>
 cd cookie
-```
-
-2. Install dependencies
-```bash
 npm install
-```
 
-3. Set up environment variables
-Create a `.env` file in the root directory:
-```env
-DATABASE_URL="postgresql://user:password@localhost:5432/cookie_app"
-NEXTAUTH_SECRET="your-secret-key"
-NEXTAUTH_URL="http://localhost:3000"
-UPLOADTHING_SECRET=""
-UPLOADTHING_APP_ID=""
-```
-
-4. Run database migrations
-```bash
+# 2. Set up database (SQLite - no setup needed!)
 npx prisma generate
 npx prisma db push
-```
 
-5. Run the development server
-```bash
+# 3. Seed categories
+npm run db:seed
+
+# 4. Start the app
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see the app!
+Open [http://localhost:3000](http://localhost:3000) and create your first account!
+
+### First Steps
+
+1. **Sign Up**: Go to `/signup` and create an account
+2. **Upload Recipe**: Click "Add Recipe" to share your first cookie recipe
+3. **Browse**: Explore recipes, categories, and the marketplace
+4. **Connect**: Follow other bakers and build your community
+
+## 📖 Full Setup Guide
+
+For detailed setup instructions including PostgreSQL configuration, environment variables, and optional services (image uploads, payments, etc.), see **[SETUP.md](./SETUP.md)**
 
 ## Project Structure
 
