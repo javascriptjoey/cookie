@@ -126,7 +126,12 @@ export default function SignInPage() {
           </form>
 
           {/* Links */}
-          <div className="mt-6 text-center">
+          <div className="mt-6 space-y-3 text-center">
+            <p className="text-sm text-[#2C1810]/70">
+              <Link href="/forgot-password" className="font-semibold text-[#9B59B6] hover:text-[#FF69B4] transition-colors">
+                Forgot password?
+              </Link>
+            </p>
             <p className="text-sm text-[#2C1810]/70">
               Don't have an account?{' '}
               <Link href="/signup" className="font-semibold text-[#9B59B6] hover:text-[#FF69B4] transition-colors">

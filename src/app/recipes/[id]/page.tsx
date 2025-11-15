@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { Clock, Users, Star, Heart, Share2, Cookie, Youtube } from 'lucide-react';
+import { Clock, Users, Star, Heart, Cookie, Youtube } from 'lucide-react';
 import Link from 'next/link';
+import ShareButton from '@/components/ShareButton';
 
 interface Recipe {
   id: string;
@@ -172,10 +173,12 @@ export default function RecipeDetailPage() {
               <Heart className="w-5 h-5" />
               Save Recipe
             </button>
-            <button className="px-6 py-3 bg-white border-2 border-[#E1BEE7] text-[#9B59B6] font-semibold rounded-xl hover:bg-[#E1BEE7]/30 transition-all flex items-center gap-2">
-              <Share2 className="w-5 h-5" />
-              Share
-            </button>
+            <ShareButton
+              title={recipe.title}
+              description={recipe.description || ''}
+              size="lg"
+              variant="button"
+            />
           </div>
         </div>
 
