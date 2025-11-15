@@ -6,11 +6,17 @@ A whimsical, Candy Land-themed web application for sharing and discovering delic
 
 ### Core Features
 - **Recipe Upload & Sharing**: Upload cookie recipes with ingredients, instructions, images, videos, and YouTube links
-- **Smart Categories**: Filter recipes by dietary needs (gluten-free, dairy-free, nut-free, no-bake, easy-bake)
-- **Social Feed**: Follow friends, comment on recipes, and build your baking community
-- **Ratings & Reviews**: Share your baking experiences and help others find the best recipes
-- **Marketplace**: Buy, sell, or trade homemade cookies with fellow bakers
-- **Pop-up Locations**: Discover and share local cookie pop-up shops and baking events
+- **Smart Categories**: Filter recipes by dietary needs (gluten-free, dairy-free, nut-free, no-bake, easy-bake, vegan)
+- **Social Feed**: Follow friends, comment on recipes, share posts with video/images
+- **Ratings & Reviews**: 5-star ratings and detailed reviews
+- **Marketplace**: Buy, sell, or trade homemade cookies
+- **Pop-up Locations**: Discover and share local cookie pop-up shops and events
+- **Social Media Sharing**: Share to Facebook, Twitter, WhatsApp, email, or copy link
+- **File Uploads**: Images and videos via Uploadthing
+- **Password Reset**: Complete forgot/reset password flow
+- **Admin Dashboard**: Manage users, import RSS content, view statistics
+- **RSS Feed Integration**: Auto-import cookie/baking content from RSS feeds
+- **Mobile-First**: Perfect responsive design for all devices
 
 ### Technical Stack
 - **Framework**: Next.js 16 (App Router) with TypeScript
