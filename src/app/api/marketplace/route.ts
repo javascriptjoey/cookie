@@ -62,7 +62,7 @@ export async function POST(request: Request) {
         price: parseFloat(price),
         type,
         quantity: parseInt(quantity) || 1,
-        images: images || [],
+        images: JSON.stringify(images || []),
         sellerId: session.user.id,
         status: 'active'
       },

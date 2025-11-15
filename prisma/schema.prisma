@@ -46,12 +46,12 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -83,9 +83,9 @@ model VerificationToken {
 model Recipe {
   id          String   @id @default(cuid())
   title       String
-  description String?  @db.Text
-  ingredients String[] // Array of ingredients
-  instructions String  @db.Text
+  description String?
+  ingredients String   // JSON string of ingredients array
+  instructions String
   prepTime    Int?     // in minutes
   cookTime    Int?     // in minutes
   servings    Int?
@@ -169,7 +169,7 @@ model Follow {
 
 model Comment {
   id        String   @id @default(cuid())
-  content   String   @db.Text
+  content   String
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   recipeId  String
@@ -198,7 +198,7 @@ model Rating {
 model Review {
   id        String   @id @default(cuid())
   title     String?
-  content   String   @db.Text
+  content   String
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   recipeId  String
@@ -211,7 +211,7 @@ model Review {
 
 model Post {
   id        String   @id @default(cuid())
-  content   String   @db.Text
+  content   String
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   recipeId  String?
@@ -228,12 +228,12 @@ model Post {
 model MarketplaceItem {
   id          String   @id @default(cuid())
   title       String
-  description String   @db.Text
-  price       Decimal  @db.Decimal(10, 2)
+  description String
+  price       Float
   type        String   // "buy", "sell", "trade"
   status      String   @default("active") // active, sold, inactive
   quantity    Int      @default(1)
-  images      String[] // Array of image URLs
+  images      String   // JSON string of image URLs
   sellerId    String
   seller      User     @relation(fields: [sellerId], references: [id], onDelete: Cascade)
   orders      Order[]
@@ -252,7 +252,7 @@ model Order {
   itemId          String
   item            MarketplaceItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
   status          String          @default("pending") // pending, completed, cancelled
-  totalPrice      Decimal         @db.Decimal(10, 2)
+  totalPrice      Float
   stripeSessionId String?
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
@@ -264,13 +264,13 @@ model Order {
 model PopupLocation {
   id          String   @id @default(cuid())
   name        String
-  description String?  @db.Text
+  description String?
   address     String
   city        String
   state       String
   zipCode     String
-  latitude    Decimal  @db.Decimal(10, 8)
-  longitude   Decimal  @db.Decimal(11, 8)
+  latitude    Float
+  longitude   Float
   startDate   DateTime
   endDate     DateTime
   userId      String

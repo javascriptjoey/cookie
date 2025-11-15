@@ -10,7 +10,7 @@ interface Recipe {
   id: string;
   title: string;
   description: string | null;
-  ingredients: string[];
+  ingredients: string; // JSON string of array
   instructions: string;
   prepTime: number | null;
   cookTime: number | null;
@@ -94,6 +94,7 @@ export default function RecipeDetailPage() {
 
   const totalTime = (recipe.prepTime || 0) + (recipe.cookTime || 0);
   const averageRating = getAverageRating(recipe.ratings);
+  const ingredientsList = JSON.parse(recipe.ingredients);
 
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
@@ -192,7 +193,7 @@ export default function RecipeDetailPage() {
                 Ingredients
               </h2>
               <ul className="space-y-3">
-                {recipe.ingredients.map((ingredient, index) => (
+                {ingredientsList.map((ingredient: string, index: number) => (
                   <li key={index} className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-[#3498DB] rounded-full flex-shrink-0 mt-2"></div>
                     <span className="text-[#2C1810]/80">{ingredient}</span>

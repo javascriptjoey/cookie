@@ -98,7 +98,7 @@ export async function POST(request: Request) {
       data: {
         title,
         description,
-        ingredients: Array.isArray(ingredients) ? ingredients : [ingredients],
+        ingredients: JSON.stringify(Array.isArray(ingredients) ? ingredients : [ingredients]),
         instructions,
         prepTime: prepTime ? parseInt(prepTime) : null,
         cookTime: cookTime ? parseInt(cookTime) : null,
