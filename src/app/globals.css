@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  /* Candy Land Theme Colors */
+  --candy-red: #E71D36;
+  --candy-purple: #9B59B6;
+  --candy-yellow: #F9DC5C;
+  --candy-blue: #3498DB;
+  --candy-orange: #FF6B35;
+  --candy-green: #2ECC71;
+  --candy-pink: #FF69B4;
+  --candy-mint: #98D8C8;
+
+  /* Sweet Pastels */
+  --pastel-pink: #FFB3D9;
+  --pastel-blue: #B3E5FC;
+  --pastel-purple: #E1BEE7;
+  --pastel-yellow: #FFF9C4;
+  --pastel-green: #C8E6C9;
+
+  /* Background and Foreground */
+  --background: #FFF5F8;
+  --foreground: #2C1810;
+
+  /* Queen Frostine's Castle Colors */
+  --ice-blue: #E3F2FD;
+  --frosting-white: #FFFBFE;
+}
+
+@theme inline {
+  /* Candy Land Primary Colors */
+  --color-candy-red: var(--candy-red);
+  --color-candy-purple: var(--candy-purple);
+  --color-candy-yellow: var(--candy-yellow);
+  --color-candy-blue: var(--candy-blue);
+  --color-candy-orange: var(--candy-orange);
+  --color-candy-green: var(--candy-green);
+  --color-candy-pink: var(--candy-pink);
+  --color-candy-mint: var(--candy-mint);
+
+  /* Pastel Colors */
+  --color-pastel-pink: var(--pastel-pink);
+  --color-pastel-blue: var(--pastel-blue);
+  --color-pastel-purple: var(--pastel-purple);
+  --color-pastel-yellow: var(--pastel-yellow);
+  --color-pastel-green: var(--pastel-green);
+
+  /* Special Colors */
+  --color-ice-blue: var(--ice-blue);
+  --color-frosting: var(--frosting-white);
+
+  /* Base Theme */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Primary brand color (candy pink) */
+  --color-primary: var(--candy-pink);
+  --color-secondary: var(--candy-purple);
+  --color-accent: var(--candy-yellow);
+}
+
+body {
+  background: linear-gradient(135deg, #FFF5F8 0%, #FFE5F0 50%, #FFF9FB 100%);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+/* Candy Land whimsical effects */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.candy-float {
+  animation: float 3s ease-in-out infinite;
+}
